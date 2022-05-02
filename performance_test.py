@@ -4,8 +4,8 @@ import datetime
 import timeit
 
 start_time = datetime.datetime.now()
-recursivepaths("timer")
+recursivepaths()
 end_time = datetime.datetime.now()
 print(end_time - start_time)
 
-print(timeit.timeit(setup="from recursive_floyd import recursivepaths",stmt="recursivepaths('timer')", number=10))
+print(timeit.timeit(setup="from recursive_floyd import recursivepaths",stmt="recursivepaths()", number=10))

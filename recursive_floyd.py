@@ -34,6 +34,7 @@ def recursivepaths():
         for j in range(MAX_LENGTH):
             solution[i][j] = floyd(i, j, MAX_LENGTH-1)
     
+    # Output solution graph to console
     print(solution)
 
 recursivepaths()
