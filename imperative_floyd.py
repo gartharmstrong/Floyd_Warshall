@@ -2,9 +2,10 @@ import sys
 import itertools
 
 def floyd(distance):
+    """A simple implementation of Floyd's algorithm
     """
-    A simple implementation of Floyd's algorithm
-    """
+    MAX_LENGTH = len(distance[0])
+
     for intermediate, start_node,end_node\
     in itertools.product\
     (range(MAX_LENGTH),range(MAX_LENGTH), range(MAX_LENGTH)):
@@ -15,15 +16,18 @@ def floyd(distance):
             continue
         #return all possible paths and find the minimum
         distance[start_node][end_node] = min(distance[start_node][end_node],
-            distance[start_node][intermediate] + distance[intermediate][end_node] )
+            distance[start_node][intermediate] + distance[intermediate][end_node])
     #Any value that have sys.maxsize has no path
     print (distance)
 
-NO_PATH = sys.maxsize
-graph = [[0, 7, NO_PATH, 8],
+def imperativepaths():
+    """Runs Floyd's algorithm using graph as source parameter
+    """
+    NO_PATH = sys.maxsize
+    graph = [
+        [0, 7, NO_PATH, 8],
         [NO_PATH, 0, 5, NO_PATH],
         [NO_PATH, NO_PATH, 0, 2],
-        [NO_PATH, NO_PATH, NO_PATH, 0]]
-MAX_LENGTH = len(graph[0])
-
-floyd(graph)
+        [NO_PATH, NO_PATH, NO_PATH, 0]
+    ]
+    floyd(graph)

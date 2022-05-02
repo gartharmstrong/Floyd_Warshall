@@ -1,15 +1,27 @@
-import sys #
+import sys
 
 def recursivepaths():
     """Finds the shortest path between all pairs of nodes using
     the Floyd-Warshall algorithm.
     """
     def floyd(i, j, k):
+        """Main recursive function to find the shortest path
+        between pairs of nodes.
+        i is start node, j is end node, and k is intermediate node
+        """
+        # If start node and end node are the same then
+        # return zero as shortest distance
         if i==j:
             return 0
+        # No intermediate node in shortest path
+        # returns distance from start to end node
         elif k==0:
             return solution[i][j]
-        distance = min(floyd(i, j, k-1), floyd(i, k, k-1) + floyd(k, j, k-1))
+        # Recursively call floyd function until shortest path
+        # is either between start and end node or using intermediate
+        # nodes between the start and end node
+        distance = min(floyd(i, j, k-1),
+                        floyd(i, k, k-1) + floyd(k, j, k-1))
         return distance
 
     # Set maxsize for nodes that have no path
