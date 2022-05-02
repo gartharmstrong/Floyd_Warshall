@@ -9,7 +9,9 @@ This projects contains a recursive and imperative Python implementation of the F
 
 ## RUNNING THE CODE
 In order to run each implementation, execute recursive_floyd.py or imperative_floyd.py in Python.
-The source graph can be updated in each Python module to calculate shortest paths.
+- The graph variable can be updated in each Python module to calculate different paths.
+- The graph consists of 4 nodes as a matrix in Python.
+- NO_PATH is used to define no path between nodes.
 
 ## TESTS
 The project contains performance tests using brute force and timeit library.
