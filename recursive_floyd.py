@@ -36,7 +36,7 @@ def recursivepaths():
                 if j == MAX_LENGTH-1:
                     print ()
         print()
-        
+
     # Set maxsize for nodes that have no path
     NO_PATH = sys.maxsize
 
@@ -54,9 +54,19 @@ def recursivepaths():
     # Fetch max length of graph
     MAX_LENGTH = len(graph[0])
 
+    # Error handling for graph with unequal nodes or edges
+    nodes = len(graph)
+    for i in range(nodes):
+        edges = len(graph[i])
+        if edges != MAX_LENGTH:
+            sys.exit("Error: graph has unequal number of edges to nodes.")
+
     # Run recursive floyd function and store results in solution
     for i in range(MAX_LENGTH):
         for j in range(MAX_LENGTH):
+            # Error handling for non-negative distances
+            if graph[i][j] < 0:
+                sys.exit("Error: graph must contain non-negative distances")
             solution[i][j] = floyd(i, j, MAX_LENGTH-1)
     
     # Output solution graph to console
