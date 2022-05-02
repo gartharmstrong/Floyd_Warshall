@@ -24,6 +24,19 @@ def recursivepaths():
                         floyd(i, k, k-1) + floyd(k, j, k-1))
         return distance
 
+    def printsolution(graph):
+        """Prints solution to console.        
+        """
+        for i in range(MAX_LENGTH):
+            for j in range(MAX_LENGTH):
+                if(graph[i][j] == NO_PATH):
+                    print ("%7s" % ("NO_PATH"),end=" ")
+                else:
+                    print ("%7d" % (graph[i][j]),end=" ")
+                if j == MAX_LENGTH-1:
+                    print ()
+        print()
+        
     # Set maxsize for nodes that have no path
     NO_PATH = sys.maxsize
 
@@ -47,6 +60,6 @@ def recursivepaths():
             solution[i][j] = floyd(i, j, MAX_LENGTH-1)
     
     # Output solution graph to console
-    print(solution)
+    printsolution(solution)
 
 recursivepaths()

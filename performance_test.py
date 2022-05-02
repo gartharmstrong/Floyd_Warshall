@@ -1,5 +1,5 @@
 from recursive_floyd import recursivepaths
-from imperative_floyd import imperativepaths
+from imperative_floyd import floydMain
 import datetime
 import timeit
 
@@ -18,7 +18,7 @@ print("Recursion brute force timing: " + str(end_time - start_time))
 # Run performance tests on imperative using internal datetime
 print("\n\nImperative timing using brute force.")
 start_time = datetime.datetime.now()
-imperativepaths()
+floydMain()
 end_time = datetime.datetime.now()
 print("Imperative brute force timing: " + str(end_time - start_time))
 
@@ -32,6 +32,6 @@ print("Recursion timeit timing: " + str(timeit.timeit(
 # Run performance tests on imperative using timeit
 print("\n\nImperative timing using timeit library.")
 print("Imperative timeit timing: " + str(timeit.timeit(
-    setup="from imperative_floyd import imperativepaths",
-    stmt="imperativepaths()",
+    setup="from imperative_floyd import floydMain",
+    stmt="floydMain()",
     number=10)))
